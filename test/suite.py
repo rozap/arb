@@ -37,5 +37,5 @@ if __name__ == '__main__':
     suite.addTest(ParametrizedTestCase.parametrize(TestBitstamp, settings = settings))
     suite.addTest(ParametrizedTestCase.parametrize(TestCoinbase, settings = settings))
     suite.addTest(ParametrizedTestCase.parametrize(TestWatcher, settings = settings))
-
+    suite.addTest(ParametrizedTestCase.parametrize(TestBTCE, settings = settings))
     unittest.TextTestRunner().run(suite)

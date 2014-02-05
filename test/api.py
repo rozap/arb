@@ -1,9 +1,8 @@
-import unittest
-from settings import settings
-from lib.api.btce import BTCEClient
+from suite import ParametrizedTestCase
+from src.api.btce import BTCEClient
 
     
-class TestBTCEClient(unittest.TestCase):
+class TestBTCEClient(ParametrizedTestCase):
 
     def setUp(self):
         self.c = BTCEClient(settings.BTCE)

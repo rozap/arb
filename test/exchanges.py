@@ -1,9 +1,9 @@
-import unittest
-from settings import settings
-from lib.exchanges import *
+from suite import ParametrizedTestCase
+from src.exchanges import *
 
 
-class ExchangeTest(object):
+class ExchangeTest(ParametrizedTestCase):
+
 
     def test_buy_price(self):
         price = self.e.buy_price()
@@ -16,13 +16,13 @@ class ExchangeTest(object):
         self.assertIsInstance(price, float)
 
 
-class TestBitstamp(unittest.TestCase, ExchangeTest):
+class TestBitstamp(ExchangeTest):
 
     def setUp(self):
-        self.e = BitstampExchange(settings)
+        self.e = BitstampExchange(self.settings)
 
     
-class TestCoinbase(unittest.TestCase, ExchangeTest):
+class TestCoinbase(ExchangeTest):
 
     def setUp(self):
-        self.e = CoinbaseExchange(settings)
+        self.e = CoinbaseExchange(self.settings)

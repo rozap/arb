@@ -1,15 +1,14 @@
-import unittest
-from settings import settings
-from lib.watcher import Watcher
-
+from suite import ParametrizedTestCase
+from src.watcher import Watcher
+from main import load_settings
     
-class TestWatcher(unittest.TestCase):
+class TestWatcher(ParametrizedTestCase):
 
     def setUp(self):
-        self.w = Watcher(settings)
+        self.w = Watcher(self.settings)
 
     def test_load_exchanges(self):
-        self.assertEqual(set(settings.exchanges), set(self.w.exchanges.keys()))
+        self.assertEqual(set(self.settings['exchanges']), set(self.w.exchanges.keys()))
 
     def test_find_trade(self):
         self.w.find_trade()

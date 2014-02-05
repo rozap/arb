@@ -1,0 +1,3 @@
+from bitstamp_exchange import BitstampExchange
+from coinbase_exchange import CoinbaseExchange
+from btce_exchange import BTCEExchange
