@@ -6,7 +6,7 @@ btc arbitrage
 
 
 #### tests
-python -m test.test --settings /<path>/<to>/<your>/<settings_file>.json
+python -m test.test --settings /path/to/your/settings_file.json
 
 #### settings
 
