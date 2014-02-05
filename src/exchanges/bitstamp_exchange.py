@@ -22,7 +22,9 @@ class BitstampExchange(Exchange):
     def _buy_price(self):
         ticker = self._public.ticker()
         balance = self._trading.account_balance()
-        return float(ticker['ask']) + float(balance['fee'])
+        base_price = float(ticker['ask'])
+        fee = float(balance['fee'])
+        return base_price + ((fee / 100) * base_price)
 
 
 
@@ -32,5 +34,7 @@ class BitstampExchange(Exchange):
     def _sell_price(self):
         ticker = self._public.ticker()
         balance = self._trading.account_balance()
-        return float(ticker['bid']) - float(balance['fee'])
+        base_price = float(ticker['bid'])
+        fee = float(balance['fee'])
+        return base_price - ((fee / 100) * base_price)
 

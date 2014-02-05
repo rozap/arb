@@ -15,7 +15,8 @@ class BTCEExchange(Exchange):
         prices = self._trading.get_prices()
         fees = self._trading.get_fees()
         base_sell = prices['ticker']['buy']
-        return base_sell + ((float(fees['trade']) / 100) * base_sell)
+        fee = float(fees['trade'])
+        return base_sell + ((fee / 100) * base_sell)
 
 
 
@@ -26,6 +27,7 @@ class BTCEExchange(Exchange):
         prices = self._trading.get_prices()
         fees = self._trading.get_fees()
         base_sell = prices['ticker']['sell']
-        return base_sell - ((float(fees['trade']) / 100) * base_sell)
+        fee = float(fees['trade'])
+        return base_sell - ((fee / 100) * base_sell)
 
 

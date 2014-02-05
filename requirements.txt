@@ -1,3 +1,4 @@
 coinbase
 requests
 git+git://github.com/kmadac/bitstamp-python-client.git
+campbx
